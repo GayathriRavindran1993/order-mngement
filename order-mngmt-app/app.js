@@ -21,6 +21,8 @@ var db = monk('localhost:27017/order-mgmnt');
 var product=db.collection('product');
 
 var user=db.collection('user');
+product.findOne({product:"fanta"},{},function(e,docs){
+if (docs==null) {
 product.insert({"product":"fanta","price":1.30})
 product.insert({"product":"coca cola","price":1.80})
 product.insert({"product":"pepsi cola","price":1.60})
@@ -28,6 +30,8 @@ user.insert({"user":"John Smith"})
 user.insert({"user":"James George"})
 user.insert({"user":"Catherine maria"})
 user.insert({"user":"Bob Smith"})
+}
+});
 
 var app = express();
 
